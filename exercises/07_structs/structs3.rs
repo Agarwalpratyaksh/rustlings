@@ -24,19 +24,31 @@ impl Package {
     }
 
     // TODO: Add the correct return type to the function signature.
-    fn is_international(&self) {
+    fn is_international(&self)-> bool{
         // TODO: Read the tests that use this method to find out when a package
         // is considered international.
+        if self.recipient_country == self.sender_country {
+            return false;
+        }
+
+            return true;
     }
 
     // TODO: Add the correct return type to the function signature.
-    fn get_fees(&self, cents_per_gram: u32) {
+    fn get_fees(&self, cents_per_gram: u32)->u32 {
         // TODO: Calculate the package's fees.
+        cents_per_gram*self.weight_in_grams
     }
 }
 
 fn main() {
     // You can optionally experiment here.
+     let sender_country = String::from("Spain");
+        let recipient_country = String::from("Russia");
+     let package = Package::new(sender_country, recipient_country, 1200);
+     let ans =package.is_international();
+        assert!(ans);
+        println!("{ans}")
 }
 
 #[cfg(test)]
