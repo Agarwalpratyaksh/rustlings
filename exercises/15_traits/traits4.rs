@@ -11,7 +11,9 @@ impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
 // TODO: Fix the compiler error by only changing the signature of this function.
-fn compare_license_types(software1: ???, software2: ???) -> bool {
+
+//todo - again this module
+fn compare_license_types<a:Licensed,b:Licensed>(software1:a , software2: b) -> bool {
     software1.licensing_info() == software2.licensing_info()
 }
 
